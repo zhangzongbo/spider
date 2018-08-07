@@ -1,8 +1,8 @@
 #### 初学python,根据网上的资料写的一个云音乐评论爬虫
 
-#### 添加了代理池和多线程的支持
+#### 添加了代理池和多线程的支持.[代理池项目地址](https://github.com/zhangzongbo/python_proxy_pool)
 
-#### 代理池参考了 @jhao104 的git 项目
+#### 代理池fork自 [@jhao104](https://github.com/jhao104/proxy_pool) 的git 项目
 
 #### 抽出了一个独立的downloader,支持超时重试和内容不正确时的重试（把部分格式化逻辑放在了downloader中不太合理，但是为了解决服务器偶尔的异常返回，这里需要优化）
 
