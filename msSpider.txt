@@ -1,0 +1,45 @@
+import requests
+import time
+from bs4 import BeautifulSoup
+
+
+def getHtml():
+    BASE_URL = 'http://ms31.haixing8.cn/login.php?d=map.getonepage&u=27176698&s=94488573&v=2734&x=1&y=null&cp={}&main=1'
+    mapList = list(range(19999, 30000))
+    calcList = []
+    for i in mapList:
+        url = BASE_URL.format(i)
+        # print('url: %s' % url)
+        y = 0
+        total = 0
+
+        html = requests.get(url).text
+        soup = BeautifulSoup(html, 'html.parser')
+        tag_p = soup.select('p')[1]
+        tag_a = tag_p.select('a')
+        for ta in tag_a:
+            # print(ta.text)
+            if '高产县粮' in ta.text:
+                y = y + 1
+        s = 'page {},has {} city'.format(i + 1, y)
+
+        calcList.append(y)
+        if len(calcList) == 5:
+            for x in calcList:
+                total = total + x
+            mark = s + ' page {} total has {} city'.format(i - 1, total)
+            print(mark)
+            if total > 4:
+                # mark = '####>> page {} total has {} city'.format(i - 2, total)
+
+                print(mark)
+                with open('msjs.txt', 'a', encoding='utf-8') as f:
+                    f.write(mark + '\n')
+            del calcList[0]
+        # print(s)
+
+        time.sleep(1)
+
+
+if __name__ == "__main__":
+    getHtml()

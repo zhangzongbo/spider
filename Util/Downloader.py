@@ -54,8 +54,8 @@ class Downloader(object):
                 'Connection': 'keep-alive',
                 'Accept-Language': 'zh-CN,zh;q=0.8'}
 
-    def get(self, url, header=None, retry_time=5, timeout=30,
-            retry_flag=list(), retry_interval=5, *args, **kwargs):
+    def get(self, url, header=None, retry_time=10, timeout=3,
+            retry_flag=list(), retry_interval=1, *args, **kwargs):
         """
         get method
         :param url: target url
@@ -73,11 +73,16 @@ class Downloader(object):
             headers.update(header)
         while True:
             try:
+                proxy = get_proxy()
+                log.info('proxy: %s' % proxy)
                 html = requests.get(url, headers=headers,
-                                    timeout=timeout, **kwargs)
-                if any(f in html.content for f in retry_flag):
+                                    timeout=timeout, proxies={
+                                        "http": "http://{}".format(proxy)}, **kwargs)
+                data = json.loads(html.content)['cmts']
+                if any(f in data for f in retry_flag):
+                    print('response: %s' % html)
                     raise Exception
-                return html
+                return data
             except Exception as e:
                 print(e)
                 retry_time -= 1

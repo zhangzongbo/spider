@@ -1,7 +1,20 @@
 myTuple = ('a', 'b', 'c', 'd')
 print(myTuple[0])
-myList = list(range(0, 120000))
-print(len(myList))
 
-myList = myList[0:11000] + myList[100000:]
-print(len(myList))
+
+cList = []
+print(type(cList))
+cList.append(1)
+cList.append(2)
+print(cList)
+total = 0
+myList = list(range(0, 5))
+print(myList)
+del myList[0]
+
+myList.append(8)
+for i in myList:
+
+    total = total + i
+print(total)
+print(myList)
